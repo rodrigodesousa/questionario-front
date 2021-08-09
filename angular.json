@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "questionario-app"
+    }
+  },
+  "defaultProject": "questionario-app",
+  "cli": {
+    "analytics": false
+  }
 }
