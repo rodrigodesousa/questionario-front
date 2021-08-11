@@ -1,29 +1,27 @@
-import { Questionario } from './../models/transferencia.models';
-import { TransferenciaService } from './../services/transferencia.service';
+import { Questionario } from '../models/questionario.models';
+import { QuestionarioService } from '../services/questionario.service';
 import { Component, Output, EventEmitter } from '@angular/core'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nova-transferencia',
-  templateUrl: './nova-transferencia.component.html',
-  styleUrls: ['./nova-transferencia.component.scss']
+  selector: 'app-novo-questionario',
+  templateUrl: './novo-questionario.component.html',
+  styleUrls: ['./novo-questionario.component.scss']
 })
-export class NovaTransferenciaComponent {
+export class NovoQuestionarioComponent {
   @Output() aoTransferir = new EventEmitter<any>();
 
   nome: string;
   descricao: string;
 
-  constructor(private service: TransferenciaService, private router: Router){}
+  constructor(private service: QuestionarioService, private router: Router){}
 
   transferir() {
-    console.log('Solicitada nova transferencia');
     const nomeEmitir: Questionario = { nome: this.nome, descricao: this.descricao }
-    // this.aoTransferir.emit(nomeEmitir);
     this.service.adicionar(nomeEmitir).subscribe(resultado => {
       console.log(resultado)
       this.limparCampos()
-      this.router.navigateByUrl('extrato')
+      this.router.navigateByUrl('questionarios')
 
     },
     (error) => console.log(error))

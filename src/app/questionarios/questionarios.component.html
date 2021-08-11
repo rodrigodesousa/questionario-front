@@ -7,18 +7,18 @@
       <th class="tabela__cabecalho__conteudo">Descrição</th>
       <th class="tabela__cabecalho__conteudo">Ações</th>
     </thead>
-    <tbody *ngIf="transferencias?.length > 0; else listaVazia">
-      <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
-        <td class="tabela__conteudo">{{ transferencia.id }}</td>
-        <td class="tabela__conteudo">{{ transferencia.nome }}</td>
-        <td class="tabela__conteudo">{{ transferencia.descricao }}</td>
+    <tbody *ngIf="questionarios?.length > 0; else listaVazia">
+      <tr class="tabela__linha" *ngFor="let questionario of questionarios">
+        <td class="tabela__conteudo">{{ questionario.id }}</td>
+        <td class="tabela__conteudo">{{ questionario.nome }}</td>
+        <td class="tabela__conteudo">{{ questionario.descricao }}</td>
         <td class="tabela__conteudo">
-          <button class="btn btn-danger">visualizar</button>
+          <button class="btn btn-success" (click)="visualizar(questionario)">visualizar</button>
         </td>
       </tr>
     </tbody>
   </table>
 </section>
 <ng-template #listaVazia>
-  <p>Nenhuma operação cadastrada</p>
+  <p>Nenhum questionario cadastrado</p>
 </ng-template>

@@ -1,5 +1,7 @@
-import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferencia.component';
-import { ExtratoComponent } from './extrato/extrato.component';
+import { NovaQuestaoComponent } from './nova-questao/nova-questao/nova-questao.component';
+import { QuestionarioComponent } from './questionario/questionario/questionario.component';
+import { NovoQuestionarioComponent } from './novo-questionario/novo-questionario.component';
+import { QuestionariosComponent } from './questionarios/questionarios.component';
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
@@ -7,8 +9,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'questionarios', pathMatch: 'full' },
-  { path: 'questionarios', component: ExtratoComponent },
-  { path: 'novo-questionario', component: NovaTransferenciaComponent }
+  { path: 'questionarios', component: QuestionariosComponent },
+  { path: 'novo-questionario', component: NovoQuestionarioComponent },
+  { path: 'questionarios/:id', component: QuestionarioComponent },
+  { path: 'nova-questao', component: NovaQuestaoComponent },
 ]
 
 @NgModule({

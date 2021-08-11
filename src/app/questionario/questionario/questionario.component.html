@@ -1,0 +1,48 @@
+<section class="container" *ngIf="questionario">
+  <h1>{{ questionario?.nome }}</h1>
+  <h3>{{ questionario?.descricao }}</h3>
+    <div *ngIf="questoes.length > 0; else listaVazia">
+      <div *ngFor="let questao of questoes">
+        <div class="my-3 py-3" *ngIf="questao.tipo == 'DISSERTATIVA'">
+          <div class="form-floating">
+            <textarea
+              id="floatingTextarea"
+              class="form-control"
+              type="text"
+            ></textarea>
+            <label for="floatingTextarea">{{ questao.numero + ' - ' + questao.descricao }}</label>
+          </div>
+        </div>
+        <div class="card my-3 py-3" *ngIf="questao.tipo == 'VERDADEIRO_OU_FALSO'">
+          <div class="form-group">
+            <div class="card-body">
+              <label class="card-title" for="">{{ questao.numero + ' - ' + questao.descricao }}</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Verdadeiro
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Falso
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card my-3 py-3" *ngIf="questao.tipo == 'MULTIPLA_ESCOLHA'">
+          <div class="card-body">
+            <div class="form-group" >
+              <label class="card-title" for="">{{ questao.numero + ' - ' + questao.descricao }}</label>
+              <h4>NADA POR ENQUANTO</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<ng-template #listaVazia>
+  <p>Nenhuma questão criada</p>
+</ng-template>

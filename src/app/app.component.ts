@@ -1,4 +1,4 @@
-import { TransferenciaService } from './services/transferencia.service';
+import { QuestionarioService } from './services/questionario.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-  constructor(private service: TransferenciaService ){
+  constructor(private service: QuestionarioService ){
 
   }
 
